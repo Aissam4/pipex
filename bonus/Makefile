@@ -6,7 +6,7 @@
 #    By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/30 00:50:16 by abarchil          #+#    #+#              #
-#    Updated: 2021/12/01 16:02:20 by abarchil         ###   ########.fr        #
+#    Updated: 2021/12/02 16:14:22 by abarchil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,12 @@ OBJ_FILE = $(SRC_FILE:.c=.o)
 
 NAME = pipex
 
+BLUE=\033[0;34m
+
+GREEN=\033[0;32m
+
+ORANG=\033[0;33m
+
 CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra 
@@ -24,12 +30,19 @@ CFLAGS = -Wall -Werror -Wextra
 all :	$(NAME)
 
 %.o : %.c
-	$(CC) -c $< -o $@
+	@echo "$(GREEN)--------COMPILING $<"
+	@$(CC) -c $< -o $@
 
 $(NAME): $(OBJ_FILE)
-	$(CC) $(CFLAGS) $(OBJ_FILE) -o $(NAME)
+	@echo "     $(ORANG)*********************"
+	@echo "     $(ORANG)*                   *"
+	@echo "     $(ORANG)*   PIPEX IS REASY  *"
+	@echo "     $(ORANG)*                   *"
+	@echo "     $(ORANG)*********************"
+	@$(CC) $(CFLAGS) $(OBJ_FILE) -o $(NAME)
 clean:
-	rm $(OBJ_FILE)
+	@rm $(OBJ_FILE)
+	@echo "\n$(BLUE)REMOVING OBJECT_FILES DONE\n"
 
 fclean:	clean
 	rm $(NAME)

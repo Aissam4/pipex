@@ -6,7 +6,7 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 20:57:17 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/01 17:13:49 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/04 03:50:51 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ typedef struct s_pipex
 	char	*exc_path_2;
 	char	**cmd_1;
 	char	**cmd_2;
+	char	**cmd;
+	char	**exc_cmd;
 	pid_t	pid;
 	int		pipefd[2];
 	int		infile_fd;
@@ -37,6 +39,7 @@ typedef struct s_pipex
 
 }	t_pipex;
 
+int			ft_pipex(t_pipex *pipex, char **env);
 int			ft_check_command(t_pipex *pipex, char **argv, char **env);
 void		ft_parent_process(t_pipex *pipex, char **env);
 void		ft_child_process(t_pipex *pipex, char **env);

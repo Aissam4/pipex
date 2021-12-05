@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parent_process.c                                :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 13:37:56 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/01 16:40:46 by abarchil         ###   ########.fr       */
+/*   Created: 2021/12/05 05:02:29 by abarchil          #+#    #+#             */
+/*   Updated: 2021/12/05 05:05:34 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+# include "../pipex.h"
 
-void	ft_parent_process(t_pipex *pipex, char **env)
+char    *get_next_line(int fd)
 {
-	wait(NULL);
-	close(pipex->pipefd[W]);
-	dup2(pipex->pipefd[R], STDIN_FILENO);
-	close(pipex->pipefd[R]);
-	dup2(pipex->outfile_fd, STDOUT_FILENO);
-	execve(pipex->exc_path_2, pipex->cmd_2, env);
+    int     byte;
+    int     i;
+    char    line[8000000] = {0};
+    char    buffer[1];
+
+    i = 0;
+    while ((byte = read(fd, buffer, 1)) > 0)
+    {
+        line[i++] = buffer[0];
+        if (buffer[0] == '\n')
+            return (ft_strdup(line));
+    }
+    if (!line[0])
+        return (NULL);
+    return (ft_strdup(line));
 }

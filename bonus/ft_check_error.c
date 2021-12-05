@@ -6,25 +6,11 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 21:32:49 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/01 16:41:29 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/05 05:00:15 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-
-void	ft_free_2d(char **str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
-	str = NULL;
-}
 
 char	*ft_check_path(char **env)
 {

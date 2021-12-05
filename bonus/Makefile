@@ -6,12 +6,12 @@
 #    By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/30 00:50:16 by abarchil          #+#    #+#              #
-#    Updated: 2021/12/03 13:23:10 by abarchil         ###   ########.fr        #
+#    Updated: 2021/12/05 09:01:46 by abarchil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC_FILE = main.c ft_check_error.c src/ft_memmove.c src/ft_strlen.c src/ft_strdup.c src/ft_strjoin.c src/ft_split.c src/ft_memcpy.c \
-src/ft_strncmp.c ft_child_process.c ft_parent_process.c ft_check_command.c ft_pipex.c
+src/ft_strncmp.c src/get_next_line.c ft_child_process.c ft_here_doc.c
 
 OBJ_FILE = $(SRC_FILE:.c=.o)
 

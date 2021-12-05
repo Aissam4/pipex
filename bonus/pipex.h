@@ -6,7 +6,7 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 20:57:17 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/05 09:32:39 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/05 14:08:47 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,5 @@ char		*ft_check_excute(char *cmd, char **env);
 
 char    	*get_next_line(int fd);
 
-void     	ft_here_doc(char *argv);
+void     	ft_here_doc(char *argv, t_pipex *pipex);
 #endif
